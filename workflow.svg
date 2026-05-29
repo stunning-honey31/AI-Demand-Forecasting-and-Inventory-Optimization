@@ -1,0 +1,161 @@
+<svg width="680" height="820" viewBox="0 0 680 820" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>AI Demand Forecasting &amp; Inventory Optimization — System Workflow</title>
+  <desc>End-to-end ML pipeline from data ingestion through dashboard delivery for food demand forecasting</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+      .title   { font-size: 15px; font-weight: 600; fill: #1a1a1a; }
+      .subtitle{ font-size: 11px; font-weight: 400; fill: #555; }
+      .label   { font-size: 13px; font-weight: 600; }
+      .small   { font-size: 11px; font-weight: 400; }
+      .legend  { font-size: 11px; fill: #555; }
+      .arr     { stroke: #888; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="820" fill="#f8f9fc" rx="16"/>
+
+  <!-- ── Header ── -->
+  <rect x="0" y="0" width="680" height="64" rx="16" fill="#1e293b"/>
+  <rect x="0" y="48" width="680" height="16" fill="#1e293b"/>
+  <text class="title" x="340" y="26" text-anchor="middle" fill="#f1f5f9" font-size="15">AI Demand Forecasting &amp; Inventory Optimization</text>
+  <text class="subtitle" x="340" y="46" text-anchor="middle" fill="#94a3b8" font-size="11">End-to-end ML Pipeline · Python · XGBoost · Streamlit · Food Industry</text>
+
+  <!-- ── STAGE 1: Data Ingestion ── -->
+  <rect x="220" y="82" width="240" height="58" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text class="label" x="340" y="106" text-anchor="middle" fill="#1e40af" font-size="13">Data Ingestion</text>
+  <text class="small" x="340" y="124" text-anchor="middle" fill="#1d4ed8" font-size="11">145-week Genpact dataset · train.csv</text>
+
+  <!-- arrow -->
+  <line x1="340" y1="140" x2="340" y2="162" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- ── STAGE 2: Preprocessing ── -->
+  <rect x="220" y="162" width="240" height="58" rx="10" fill="#ccfbf1" stroke="#14b8a6" stroke-width="1"/>
+  <text class="label" x="340" y="186" text-anchor="middle" fill="#0f766e" font-size="13">Preprocessing</text>
+  <text class="small" x="340" y="204" text-anchor="middle" fill="#0d9488" font-size="11">Cleaning · null handling · chronological sort</text>
+
+  <!-- arrow -->
+  <line x1="340" y1="220" x2="340" y2="242" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- ── STAGE 3: Feature Engineering ── -->
+  <rect x="140" y="242" width="400" height="104" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text class="label" x="340" y="266" text-anchor="middle" fill="#4c1d95" font-size="13">Feature Engineering</text>
+
+  <!-- sub-badge: lag_1/lag_2 -->
+  <rect x="158" y="278" width="108" height="28" rx="7" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.7"/>
+  <text class="small" x="212" y="297" text-anchor="middle" fill="#4c1d95" font-size="11">lag_1 / lag_2</text>
+
+  <!-- sub-badge: rolling_mean_3 -->
+  <rect x="282" y="278" width="116" height="28" rx="7" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.7"/>
+  <text class="small" x="340" y="297" text-anchor="middle" fill="#4c1d95" font-size="11">rolling_mean_3</text>
+
+  <!-- sub-badge: price/promo -->
+  <rect x="414" y="278" width="108" height="28" rx="7" fill="#ddd6fe" stroke="#7c3aed" stroke-width="0.7"/>
+  <text class="small" x="468" y="297" text-anchor="middle" fill="#4c1d95" font-size="11">price · promo</text>
+
+  <text class="small" x="340" y="332" text-anchor="middle" fill="#6d28d9" font-size="11">7 features · temporal + business + marketing signals</text>
+
+  <!-- arrow -->
+  <line x1="340" y1="346" x2="340" y2="368" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- ── STAGE 4: Train/Test Split ── -->
+  <rect x="220" y="368" width="240" height="58" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+  <text class="label" x="340" y="392" text-anchor="middle" fill="#78350f" font-size="13">Chronological Split</text>
+  <text class="small" x="340" y="410" text-anchor="middle" fill="#92400e" font-size="11">80% train · 20% test · no data leakage</text>
+
+  <!-- arrow -->
+  <line x1="340" y1="426" x2="340" y2="448" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- ── STAGE 5: XGBoost Model ── -->
+  <rect x="140" y="448" width="400" height="84" rx="10" fill="#fee2e2" stroke="#ef4444" stroke-width="1"/>
+  <text class="label" x="340" y="472" text-anchor="middle" fill="#7f1d1d" font-size="13">XGBoost Regressor</text>
+
+  <!-- param badges -->
+  <rect x="158" y="482" width="88" height="24" rx="6" fill="#fecaca" stroke="#ef4444" stroke-width="0.7"/>
+  <text class="small" x="202" y="499" text-anchor="middle" fill="#7f1d1d" font-size="11">200 estimators</text>
+
+  <rect x="258" y="482" width="88" height="24" rx="6" fill="#fecaca" stroke="#ef4444" stroke-width="0.7"/>
+  <text class="small" x="302" y="499" text-anchor="middle" fill="#7f1d1d" font-size="11">lr = 0.05</text>
+
+  <rect x="358" y="482" width="88" height="24" rx="6" fill="#fecaca" stroke="#ef4444" stroke-width="0.7"/>
+  <text class="small" x="402" y="499" text-anchor="middle" fill="#7f1d1d" font-size="11">max_depth = 6</text>
+
+  <text class="small" x="340" y="522" text-anchor="middle" fill="#b91c1c" font-size="11">subsample 0.8 · colsample_bytree 0.8 · hist method</text>
+
+  <!-- arrow -->
+  <line x1="340" y1="532" x2="340" y2="554" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- ── STAGE 6: Evaluation ── -->
+  <rect x="140" y="554" width="400" height="76" rx="10" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+  <text class="label" x="340" y="578" text-anchor="middle" fill="#14532d" font-size="13">Model Evaluation</text>
+
+  <rect x="158" y="588" width="100" height="24" rx="6" fill="#bbf7d0" stroke="#22c55e" stroke-width="0.7"/>
+  <text class="small" x="208" y="605" text-anchor="middle" fill="#14532d" font-size="11">MAE ≈ 28</text>
+
+  <rect x="270" y="588" width="100" height="24" rx="6" fill="#bbf7d0" stroke="#22c55e" stroke-width="0.7"/>
+  <text class="small" x="320" y="605" text-anchor="middle" fill="#14532d" font-size="11">RMSE ≈ 35</text>
+
+  <rect x="382" y="588" width="100" height="24" rx="6" fill="#bbf7d0" stroke="#22c55e" stroke-width="0.7"/>
+  <text class="small" x="432" y="605" text-anchor="middle" fill="#14532d" font-size="11">~94% accuracy</text>
+
+  <!-- arrow -->
+  <line x1="340" y1="630" x2="340" y2="652" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- ── STAGE 7: Dashboard ── -->
+  <rect x="140" y="652" width="400" height="76" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text class="label" x="340" y="676" text-anchor="middle" fill="#1e3a8a" font-size="13">Streamlit Dashboard</text>
+  <text class="small" x="340" y="694" text-anchor="middle" fill="#1d4ed8" font-size="11">KPIs · demand chart · actual vs predicted</text>
+  <text class="small" x="340" y="710" text-anchor="middle" fill="#1d4ed8" font-size="11">feature importance · sidebar filters · CSV export</text>
+
+  <!-- ── Side input nodes (left) ── -->
+  <rect x="14" y="264" width="100" height="44" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  <text class="label" x="64" y="283" text-anchor="middle" fill="#334155" font-size="12">Email promo</text>
+  <text class="small" x="64" y="299" text-anchor="middle" fill="#64748b" font-size="10">Binary signal</text>
+  <line x1="114" y1="286" x2="140" y2="286" class="arr" marker-end="url(#arrow)"/>
+
+  <rect x="14" y="320" width="100" height="44" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  <text class="label" x="64" y="339" text-anchor="middle" fill="#334155" font-size="12">Homepage feat.</text>
+  <text class="small" x="64" y="355" text-anchor="middle" fill="#64748b" font-size="10">Binary signal</text>
+  <line x1="114" y1="342" x2="140" y2="342" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- ── Side input nodes (right) ── -->
+  <rect x="566" y="264" width="100" height="44" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  <text class="label" x="616" y="283" text-anchor="middle" fill="#334155" font-size="12">Checkout price</text>
+  <text class="small" x="616" y="299" text-anchor="middle" fill="#64748b" font-size="10">Price elasticity</text>
+  <line x1="540" y1="286" x2="566" y2="286" class="arr" marker-end="url(#arrow)"/>
+
+  <rect x="566" y="320" width="100" height="44" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  <text class="label" x="616" y="339" text-anchor="middle" fill="#334155" font-size="12">Base price</text>
+  <text class="small" x="616" y="355" text-anchor="middle" fill="#64748b" font-size="10">Discount depth</text>
+  <line x1="540" y1="342" x2="566" y2="342" class="arr" marker-end="url(#arrow)"/>
+
+  <!-- ── Legend ── -->
+  <rect x="20" y="748" width="640" height="52" rx="10" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+  <text class="legend" x="340" y="764" text-anchor="middle" fill="#94a3b8" font-size="10">PIPELINE STAGES</text>
+
+  <rect x="36" y="772" width="10" height="10" rx="2" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.8"/>
+  <text class="legend" x="52" y="782">Ingestion / Dashboard</text>
+
+  <rect x="164" y="772" width="10" height="10" rx="2" fill="#ccfbf1" stroke="#14b8a6" stroke-width="0.8"/>
+  <text class="legend" x="180" y="782">Preprocessing</text>
+
+  <rect x="268" y="772" width="10" height="10" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="0.8"/>
+  <text class="legend" x="284" y="782">Feature eng.</text>
+
+  <rect x="368" y="772" width="10" height="10" rx="2" fill="#fef3c7" stroke="#f59e0b" stroke-width="0.8"/>
+  <text class="legend" x="384" y="782">Train/test split</text>
+
+  <rect x="475" y="772" width="10" height="10" rx="2" fill="#fee2e2" stroke="#ef4444" stroke-width="0.8"/>
+  <text class="legend" x="491" y="782">XGBoost model</text>
+
+  <rect x="577" y="772" width="10" height="10" rx="2" fill="#dcfce7" stroke="#22c55e" stroke-width="0.8"/>
+  <text class="legend" x="593" y="782">Evaluation</text>
+
+  <!-- Footer -->
+  <text class="legend" x="340" y="808" text-anchor="middle" fill="#94a3b8" font-size="10">github.com/stunning-honey31 · AI Demand Forecasting Project · May 2026</text>
+</svg>
